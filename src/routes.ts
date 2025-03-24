@@ -17,6 +17,7 @@ router.post("/upload", upload.single("file"), async (req: Request, res: Response
     Key: `uploads/${Date.now()}_${file.originalname}`,
     Body: file.buffer,
     ContentType: file.mimetype,
+    ACL: "public-read", // Ensure public access if needed
   };
 
   try {
